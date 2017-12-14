@@ -1,0 +1,164 @@
+﻿
+@{
+    ViewBag.Title = "Persona";
+}
+
+<h2>Persona</h2>
+
+<script>
+    var x = "Hola Mundo Js"
+
+    var obj = {
+        Name: "Daniel",
+        Surname: "riba",
+        Age: 24,
+        sayhello: function () {
+            alert("hola soy daniel");
+        }
+    };
+
+    obj.sayhello();
+
+    console.log(obj.Name);
+
+    function alertar(msg) {
+
+        alert(msg);
+    }
+
+    alertar("hola");
+
+    console.log("hola mundo JS....");
+    
+
+</script>
+
+<script>
+
+    function ValidateForm() {
+        var name = document.getElementById("txtName").value;
+        var ape = document.getElementById("txtSurName").value;
+        var age = document.getElementById("txtAge").value;
+        var longApe = document.getElementById("txtSurName").value.length;
+        var longName = document.getElementById("txtName").value.length;
+
+        var band = false;
+
+        if (longApe == 0 && longName == 0 && age < 13) {
+            document.getElementById("name-error").innerHTML = "error!!!";
+            document.getElementById("ape-error").innerHTML = "error!!!";
+            document.getElementById("age-error").innerHTML = "error!!!";
+            return false;
+        }
+
+
+        if (longName > 50) {
+            document.getElementById("name-error").innerHTML = "error!!!";
+            return false;
+        } else if (longApe > 50) {
+            document.getElementById("ape-rror").innerHTML = "error!!!";
+            return false;
+        } else if (longName == 0) {
+            document.getElementById("name-error").innerHTML = "error!!!";
+            return false;
+        } else if (name == ape) {
+            document.getElementById("ape-error").innerHTML = "error!!!";
+            return false;
+        } else if (longApe == 0) {
+            document.getElementById("ape-error").innerHTML = "error!!!";
+            return false;
+        } else if (age < 13) {
+            document.getElementById("age-error").innerHTML = "error!!!";
+            return false;
+        } else {
+            return true;
+        }
+       
+  
+    }
+
+</script>
+
+<form  method="post"  action="Persona">
+    <div class="form-group">
+        <label>Nombre</label>
+        <input id="txtName" type="text"  name="Name">
+        <span id="name-error"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Apellido</label>
+        <input id="txtSurName" type="text"  name="SurName">
+        <span id="ape-error"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Edad</label>
+        <input id ="txtAge" type="number"  name="Age" />
+        <span id="age-error"></span>
+    </div>
+
+    <button type="submit" onclick="return ValidateForm()">Guardar</button>
+</form>
+
+<br />
+<br />
+
+
+<script>
+
+
+    function Calcular() {
+        var op1 = document.getElementById("op1").value;
+        var op2 = document.getElementById("op2").value;
+        var op = document.getElementById("op").value;
+
+
+        if (op == "Sumar") {
+            var res = parseInt(op1) + parseInt(op2)
+            document.getElementById("result").innerHTML = res;
+        }
+        if (op == "Restar") {
+            var res = parseInt(op1) - parseInt(op2)
+            document.getElementById("result").innerHTML = res
+        }
+        if (op == "Multiplicar") {
+            var res = parseInt(op1) * parseInt(op2)
+            document.getElementById("result").innerHTML = res
+        }
+        if (op == "Dividir") {
+            var res = parseInt(op1) / parseInt(op2)
+            document.getElementById("result").innerHTML = res
+        }
+        
+
+    }
+
+</script>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <input id="op1" type="number" />
+        </div>
+
+        <div class="form-group">
+            <input id="op2" type="number"/>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <select id="op" class="form-control">
+            <option value="Sumar">Sumar</option>
+            <option value="Restar">Restar</option>
+            <option value="Multiplicar">Multiplicar</option>
+            <option value="Dividir">Dividir</option>
+        </select>
+    </div>
+</div>
+<button class="btn-primary"  onclick="return Calcular()">Go!</button>
+<br />
+<br />
+<span id="result"></span>
+
+
+
